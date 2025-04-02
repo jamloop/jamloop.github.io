@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Pixel Test</title>
+    <title>Advanced Pixel Test</title>
 
     <!-- 
         In the advanced example, as a web developer, I understand that the SDK script 
@@ -13,30 +13,30 @@
         // javascript written here by the web developer to ensure the page works well,
         // and that the page fires the attribution tracking correctly.
         // Here is a helper function to make it easy to fire pixels.
-        let pixels = {
-            "new": {
-                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
-                "pixelId": "08b09e4b-abd7-4d02-97be-53a76c5a3d76"
-            },
-            "chat": {
-                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
-                "pixelId": "c54e099b-896c-4657-923b-a8f1b1c3427d"
-            }
-        }
         function firePixel(pixelName) {
             window.jamloop = window.jamloop || [];
-            jamloop.push(function () {
-                // as the webdeveloper of the site, I edited the provided code to make it work best for me.
-                jamloop.track(pixels[pixelName]);
-            });
+            if (pixelName == "new") {
+                jamloop.push(function () {
+                    jamloop.track({
+                        "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                        "pixelId": "08b09e4b-abd7-4d02-97be-53a76c5a3d76"
+                    });
+                });
+            } else if (pixelName == "chat") {
+                jamloop.push(function () {
+                    jamloop.track({
+                        "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                        "pixelId": "c54e099b-896c-4657-923b-a8f1b1c3427d"
+                    });
+                });
+            }
         }
-
     </script>
 </head>
 
 <body>
-    <h1>Pixel Test</h1>
-    <p>This is an advanced test of attribution pixels.</p>
+    <h1>Advanced Pixel Test</h1>
+    <p>This is an advanced test of attribution pixels. Hint: view the source.</p>
 
     <p>
         <a href="./index.html">Basic Pixel Example</a>
