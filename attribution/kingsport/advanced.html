@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Pixel Test</title>
+
+    <!-- 
+        In the advanced example, as a web developer, I understand that the SDK script 
+        needs to only be included a single time, and I prefer to load it in the <head> of the
+        document to ensure the page has all JavaScript loaded as soon as possible.
+    -->
+    <script defer src="https://p.jmlp.app/sdk.js"></script>
+    <script>
+        // javascript written here by the web developer to ensure the page works well,
+        // and that the page fires the attribution tracking correctly.
+        // Here is a helper function to make it easy to fire pixels.
+        let pixels = {
+            "new": {
+                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                "pixelId": "08b09e4b-abd7-4d02-97be-53a76c5a3d76"
+            },
+            "chat": {
+                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                "pixelId": "c54e099b-896c-4657-923b-a8f1b1c3427d"
+            }
+        }
+        function firePixel(pixelName) {
+            window.jamloop = window.jamloop || [];
+            jamloop.push(function () {
+                // as the webdeveloper of the site, I edited the provided code to make it work best for me.
+                jamloop.track(pixels[pixelName]);
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Pixel Test</h1>
+    <p>This is an advanced test of attribution pixels.</p>
+
+    <p>
+        <a href="./index.html">Basic Pixel Example</a>
+    </p>
+
+    <p>
+        In this advanced example, the following pixels will be dispatched:
+        <ul>
+            <li>
+                The visits pixel when page first loads
+            </li>
+            <li>
+                The new pixel will load when users click the button for "new vehicles"
+            </li>
+            <li>
+                The chat pixel will load when users click to initiate chat
+            </li>
+        </ul>
+    </p>
+    <p>
+        <a href="javascript:void" onclick="firePixel('new');">New Cars</a>
+    </p>
+    <p>
+        <button type="button" onclick="firePixel('chat');">Chat with an associate</button>
+    </p>
+
+    <!-- this is the visits pixel, it can be placed anywhere -->
+    <script>
+        window.jamloop = window.jamloop || [];
+        jamloop.push(function () {
+            jamloop.track({
+                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                "pixelId": "c54e099b-896c-4657-923b-a8f1b1c3427d"
+            });
+        });
+        document.write('JavaScript tag loaded');
+    </script>
+    <noscript>
+        <!-- 
+            NOTE: do not attempt to copy and paste this URL into a browser or use it without handling the 
+            HTML encoding. Since this noscript tag contains an img tag and is intended to be place in an
+            HTML page, it is important that any entity that requires HTML encoding be properly encoded.
+            Review this RFC for more information: https://datatracker.ietf.org/doc/html/rfc1866#section-9.7.1
+         -->
+        <img src="https://t.jmlp.app/pixel?advertiserId=35244af4-8afb-46af-bffc-5550c85410a1&amp;pixelId=c54e099b-896c-4657-923b-a8f1b1c3427d"
+            alt="" width="0" height="0" />
+        <p>Image tag loaded</p>
+    </noscript>
+</body>
+
+</html>
