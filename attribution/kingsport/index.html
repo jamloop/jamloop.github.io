@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Pixel Test</title>
+</head>
+
+<body>
+    <h1>Pixel Test</h1>
+    <p>This is a test of attribution pixels.</p>
+    <script defer src="https://p.jmlp.app/sdk.js"></script>
+    <script>
+        window.jamloop = window.jamloop || [];
+        jamloop.push(function () {
+            jamloop.track({
+                "advertiserId": "35244af4-8afb-46af-bffc-5550c85410a1",
+                "pixelId": "c54e099b-896c-4657-923b-a8f1b1c3427d"
+            });
+        });
+        document.write('JavaScript tag loaded');
+    </script>
+    <noscript>
+        <!-- 
+            NOTE: do not attempt to copy and paste this URL into a browser or use it without handling the 
+            HTML encoding. Since this noscript tag contains an img tag and is intended to be place in an
+            HTML page, it is important that any entity that requires HTML encoding be properly encoded.
+            Review this RFC for more information: https://datatracker.ietf.org/doc/html/rfc1866#section-9.7.1
+         -->
+        <img src="https://t.jmlp.app/pixel?advertiserId=35244af4-8afb-46af-bffc-5550c85410a1&amp;pixelId=c54e099b-896c-4657-923b-a8f1b1c3427d"
+            alt="" width="0" height="0" />
+        <p>Image tag loaded</p>
+    </noscript>
+</body>
+
+</html>
